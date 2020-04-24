@@ -30,6 +30,7 @@ Things you may want to cover:
 |password|string|null: false|
 |name|string|null: false, index:ture　|
 ### Association
+- has_many :users_groups  
 - has_many :messages, through:  :users_groups
 
 ## messagesテーブル
@@ -47,7 +48,9 @@ Things you may want to cover:
 |------|----|-------|
 |name|string|null: false|
 ### Association
-- has_many  :messages,  through:  :users_groups
+- belongs_to :user
+- has_many :users_groups
+- has_many :messages,  through:  :users_groups
 
 ## users_groupsテーブル
 |Column|Type|Options|
