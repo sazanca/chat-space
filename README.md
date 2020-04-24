@@ -28,11 +28,11 @@ Things you may want to cover:
 |------|----|-------|
 |email|string|null: false|
 |password|string|null: false|
-|name|string|null: false, index:ture　|
+|name|string|null: false, index:ture|
 ### Association
 - has_many :users_groups  
-- has_many :messages, through:  :groups
-- has_many :group, through:  :users_groups
+- has_many :messages
+- has_many :groups, through:  :users_groups
 
 ## messagesテーブル
 |Column|Type|Options|
