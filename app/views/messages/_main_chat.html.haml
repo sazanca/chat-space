@@ -1,0 +1,28 @@
+.main_chat
+  .main_chat__header
+    .main_chat__header__left-box
+      %h2.main_chat__header__left-box__current-group
+        ポケモン
+      %ul.main_chat__header__left-box__member-list
+        Memder : ヒトカゲ
+    .main_chat__header__edit-btn
+      Edit
+    - link_to "#",class: "main_chat__header__edit-btn"
+  .main_chat__messages
+    .message
+      .message__upper_info
+        .message__upper_info__talker
+          ポケモン
+        .message__upper_info__date
+          today
+      .message__text
+        ポケモン言えるかな
+  .form
+    %form.new__message
+      .input-box 
+        %input{type: "text", class: "input-box__text", placeholder: "text a message"}
+        %label{class: "input-box__image"}
+          = icon('fas', 'image')
+          %input{type: "file",class: "input-box__file"}
+      %input{type: "submit", value: "Send", class: "submit-btn" }
+      
