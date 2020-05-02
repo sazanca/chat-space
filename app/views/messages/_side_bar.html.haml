@@ -10,8 +10,9 @@
         = link_to edit_user_path(current_user) do
           = icon('fas', 'cog', class: 'icon')
   .side__groups
-    .side__groups_group
+    - current_user.groups.each do |group|
+    .side__groups__group
+      = link_to '#' do
       .side__groups__group__name
-        ポケモン
       .side__groups__group__name__message
-        カビゴン
+        メッセージはまだありません。
