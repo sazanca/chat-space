@@ -1,13 +1,14 @@
 .side
   .side__header
     .side__header__bar
+      = current_user.name
       .side__header__bar__user
         koko
       .side__header__bar__menu
         = link_to "#", class: "side__header__bar__menu__box-edit" do
           = icon('far', 'edit')
-        = link_to "#", class: "side__header__bar__menu__box-cog" do
-          = icon('fas', 'cog')
+        = link_to edit_user_path(current_user) do
+          = icon('fas', 'cog', class: 'icon')
   .side__groups
     .side__groups_group
       .side__groups__group__name
