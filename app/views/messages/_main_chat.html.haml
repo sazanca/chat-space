@@ -9,20 +9,16 @@
       Edit
     - link_to "#",class: "main_chat__header__edit-btn"
   .main_chat__messages
-    .message
-      .message__upper_info
-        .message__upper_info__talker
-          ポケモン
-        .message__upper_info__date
-          today
-      .message__text
-        ポケモン言えるかな
+    = render @messages
+          
   .form
-    %form.new__message
-      .input-box 
-        %input{type: "text", class: "input-box__text", placeholder: "text a message"}
-        %label{class: "input-box__image"}
-          = icon('fas', 'image')
-          %input{type: "file",class: "input-box__file"}
-      %input{type: "submit", value: "Send", class: "submit-btn" }
+    = form_for [@group, @message] do |f|
+      = f.text_field :content, class: 'form__message', placeholder: 'type a message'
+      %form.new__message
+        .input-box 
+          %input{type: "text", class: "input-box__text", placeholder: "text a message"}
+          %label{class: "input-box__image"}
+            = icon('fas', 'image')
+            %input{type: "file",class: "input-box__file"}
+        %input{type: "submit", value: "Send", class: "submit-btn" }
       
