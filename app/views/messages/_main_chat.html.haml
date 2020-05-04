@@ -3,7 +3,7 @@
     .main_chat__header__left-box
       %h2.main_chat__header__left-box__current-group
         = @group.name
-      %h2.main_chat__header__left-box__member-list
+      %p.main_chat__header__left-box__member-list
         - @group.users.each do |user| 
           = user.name
     .main_chat__header__edit-btn
@@ -15,12 +15,16 @@
           
   .form
     = form_for [@group, @message] do |f|
-      = f.text_field :content, class: 'form__message', placeholder: 'type a message'
-    
-    %form.new__message
       .input-box 
-        %input{type: "text", class: "input-box__text", placeholder: "text a message"}
-        %label{class: "input-box__image"}
-          = icon('fas', 'image')
-          %input{type: "file",class: "input-box__file"}
-      %input{type: "submit", value: "Send", class: "submit-btn" }
+        = f.text_field :content, class: 'input-box__text', placeholder: 'type a message'
+        = f.label :image, class: 'input-box__image' do
+          = icon('fas', 'image', class: 'icon')
+          = f.file_field :image, class: 'input-box__file'
+      = f.submit 'Send', class: 'submit-btn'
+-# %form.new__message
+    -#   .input-box 
+    -#     %input{type: "text", class: "input-box__text", placeholder: "text a message"}
+    -#     %label{class: "input-box__image"}
+    -#       = icon('fas', 'image')
+    -#       %input{type: "file",class: "input-box__file"}
+    -#   %input{type: "submit", value: "Send", class: "submit-btn" }
