@@ -2,27 +2,29 @@
   .main_chat__header
     .main_chat__header__left-box
       %h2.main_chat__header__left-box__current-group
-        ポケモン
-      %ul.main_chat__header__left-box__member-list
-        Memder : ヒトカゲ
+        = @group.name
+      %p.main_chat__header__left-box__member-list
+        - @group.users.each do |user| 
+          = user.name
     .main_chat__header__edit-btn
-      Edit
-    - link_to "#",class: "main_chat__header__edit-btn"
+      = link_to edit_group_path(@group.id) do
+        Edit
+        -# = class: 'main_chat__header__edit-btn'
   .main_chat__messages
-    .message
-      .message__upper_info
-        .message__upper_info__talker
-          ポケモン
-        .message__upper_info__date
-          today
-      .message__text
-        ポケモン言えるかな
+    = render @messages
+          
   .form
-    %form.new__message
+    = form_for [@group, @message] do |f|
       .input-box 
-        %input{type: "text", class: "input-box__text", placeholder: "text a message"}
-        %label{class: "input-box__image"}
-          = icon('fas', 'image')
-          %input{type: "file",class: "input-box__file"}
-      %input{type: "submit", value: "Send", class: "submit-btn" }
-      
+        = f.text_field :content, class: 'input-box__text', placeholder: 'type a message'
+        = f.label :image, class: 'input-box__image' do
+          = icon('fas', 'image', class: 'icon')
+          = f.file_field :image, class: 'input-box__file'
+      = f.submit 'Send', class: 'submit-btn'
+-# %form.new__message
+    -#   .input-box 
+    -#     %input{type: "text", class: "input-box__text", placeholder: "text a message"}
+    -#     %label{class: "input-box__image"}
+    -#       = icon('fas', 'image')
+    -#       %input{type: "file",class: "input-box__file"}
+    -#   %input{type: "submit", value: "Send", class: "submit-btn" }
