@@ -9,7 +9,7 @@
     .main_chat__header__edit-btn
       = link_to edit_group_path(@group.id) do
         Edit
-        -# = class: 'main_chat__header__edit-btn'
+       
   .main_chat__messages
     = render @messages
           
@@ -21,10 +21,3 @@
           = icon('fas', 'image', class: 'icon')
           = f.file_field :image, class: 'input-box__file'
       = f.submit 'Send', class: 'submit-btn'
--# %form.new__message
-    -#   .input-box 
-    -#     %input{type: "text", class: "input-box__text", placeholder: "text a message"}
-    -#     %label{class: "input-box__image"}
-    -#       = icon('fas', 'image')
-    -#       %input{type: "file",class: "input-box__file"}
-    -#   %input{type: "submit", value: "Send", class: "submit-btn" }
