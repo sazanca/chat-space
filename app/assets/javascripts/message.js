@@ -19,7 +19,7 @@ $(function(){
          <img src=${message.image} >
        </div>`
      return html;
-   } else {
+    } else {
      var html =
       `<div class="message">
          <div class="message__upper__info">
@@ -37,9 +37,9 @@ $(function(){
          </div>
        </div>`
      return html;
-   };
- }
-$('#new_message').on('submit', function(e){
+    };
+  }
+  $('#new_message').on('submit', function(e){
     e.preventDefault();
     var formData = new FormData(this);
     var url = $(this).attr('action')
@@ -52,10 +52,12 @@ $('#new_message').on('submit', function(e){
       contentType: false
     })
     .done(function(data){
+      console.log("OK")
       var html = buildHTML(data);
       $('.main_chat__messages').append(html);
-      $('.main_chat__messages').animate({ scrollTop: $('.main__chat__messages')[0].scrollHeight});
-      $('form')[0].reset();
+      $('.main_chat__messages').animate({ scrollTop: $('.main_chat__messages')[0].scrollHeight});
+      $('.submit').attr('disabled');
     });
-})
+  })
 });
+
