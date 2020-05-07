@@ -71,11 +71,14 @@ $(function(){
       data: {id: last_message_id}
     })
     .done(function(messages) {
+      if (messages.length !== 0) {
       var insertHTML = '';
       $.each(messages, function(i, message){
         insertHTML += buildHTML(message)
       });
       $('.main_chat__messages').append(insertHTML);
+      $('.main_chat__messages').animate({ scrollTop: $('.main_chat__messages')[0].scrollHeight})
+     }
     })
     .fail(function() {
       alert('error');
