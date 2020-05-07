@@ -2,6 +2,9 @@
   box-sizing: border-box;
 }
 
+a {
+  text-decoration: none;
+}
 .wrapper {
   display: flex;
   height: 100vh;
@@ -24,25 +27,27 @@
       font-weight: bold;
       background-color: #d8d8d8 ;
         &__menu {
-          &__box-edit {
+          a {
             color: #ffffff;
-            text-decoration: none;
-            margin-right: 5px;
-          }
-          &__box-cog {
-            color: #ffffff;
+            &__box-edit {
+              color: #ffffff;
+              text-decoration: none;
+              margin-right: 5px;
+            }
+            &__box-cog {
+              color: #ffffff;
+            }
           }
         }    
     }
   }
-  &__groups {
-    background-color: #2f3e51;
-    height: calc(100% - 100px);
-    padding: 20px 20px 0;
+    &__groups {
+      background-color: #2f3e51;
+      height: calc(100% - 100px);
+      padding: 20px 20px 0;
       &__group {
         margin-bottom: 40px;
-        color: #ffffff;
-        font-weight: bold;
+        font-weight: bold;      
         &__name {
           font-size: 15px;
           margin-bottom: 5px;
@@ -50,9 +55,13 @@
         &__name__message {
           font-size: 11px;
         }
-      }  
-  } 
-}   
+        a {
+          color: #ffffff;
+        }
+      }
+    }
+}     
+   
 
  
                 
@@ -85,6 +94,9 @@
         line-height: 40px;
         text-transform: none;
         margin-top: 30px;
+        a {
+          color: #38aef0;
+        }
       }     
        
   } 
