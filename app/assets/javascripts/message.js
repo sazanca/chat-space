@@ -3,11 +3,11 @@ $(function(){
    if ( message.image ) {
      var html =
       `<div class="message" data-message-id=${message.id}>
-         <div class="message__upper__info">
-           <div class="message__upper__info__talker">
+         <div class="message__upper_info">
+           <div class="message__upper_info__talker">
              ${message.user_name}
            </div>
-           <div class="message__upper__info__date">
+           <div class="message__upper_info__date">
              ${message.created_at}
            </div>
          </div>
@@ -22,11 +22,11 @@ $(function(){
     } else {
      var html =
       `<div class="message" data-message-id=${message.id}>
-         <div class="message__upper__info">
-           <div class="message__upper__info__talker">
+         <div class="message__upper_info">
+           <div class="message__upper_info__talker">
              ${message.user_name}
            </div>
-           <div class="message__upper__info__date">
+           <div class="message__upper_info__date">
              ${message.created_at}
            </div>
          </div>
@@ -55,7 +55,10 @@ $(function(){
       var html = buildHTML(data);
       $('.main_chat__messages').append(html);
       $('.main_chat__messages').animate({ scrollTop: $('.main_chat__messages')[0].scrollHeight});
-      $('input[type="submit"]').prop('disabled', false);
+      $('form')[0].reset();
+    })
+    .always(function(){
+      $('input[type="submit"]').prop('disabled', false); 
     })
     .fail(function() {
       alert("メッセージ送信に失敗しました");

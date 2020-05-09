@@ -25,18 +25,17 @@ a {
       display: flex;
       justify-content: space-between;
       font-weight: bold;
-      background-color: #d8d8d8 ;
         &__menu {
           a {
+          color: #ffffff;
+          &__box-edit {
             color: #ffffff;
-            &__box-edit {
-              color: #ffffff;
-              text-decoration: none;
-              margin-right: 5px;
-            }
-            &__box-cog {
-              color: #ffffff;
-            }
+            text-decoration: none;
+            margin-right: 5px;
+          }
+          &__box-cog {
+            color: #ffffff;
+          }
           }
         }    
     }
